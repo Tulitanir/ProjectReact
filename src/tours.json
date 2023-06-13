@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "name": "В ПУСТЫНЮ НА ВНЕДОРОЖНИКАХ",
+        "date": "1 - 10 мая",
+        "more_date": 3,
+        "price": 320000,
+        "place_country": "Египет",
+        "place_city": null,
+        "imageUrl": "https://sportishka.com/uploads/posts/2022-11/1667548335_38-sportishka-com-p-dzhip-safari-dubai-krasivo-42.jpg"
+    },
+    {
+        "id": 2,
+        "name": "ЛЕТНИЕ ОАЭ",
+        "date": "5 - 13 мая",
+        "more_date": 2,
+        "price": 220000,
+        "place_country": "ОАЭ",
+        "place_city": null,
+        "imageUrl": "https://www.jetravel.ru/wp-content/uploads/2021/07/40c190-x3GA9V.jpeg"
+    },
+    {
+        "id": 3,
+        "name": "ВЕНЕЦИЯ",
+        "date": "1 - 3 мая",
+        "more_date": 15,
+        "price": 450000,
+        "place_country": "Италия",
+        "place_city": "Венеция",
+        "imageUrl": "https://touristam.com/wp-content/uploads/2022/03/venice-photo-9.jpg"
+    },{
+        "id": 4,
+        "name": "АКТИВНЫЙ ОТДЫХ В СОЧИ",
+        "date": "1 - 12 февраля",
+        "more_date": 0,
+        "price": 320000,
+        "place_country": "Россия",
+        "place_city": "Сочи",
+        "imageUrl": "https://class-tour.com/wp-content/uploads/2/d/d/2ddf8770c81dd5d116a462d1bef468d8.jpeg"
+    },{
+        "id": 5,
+        "name": "ЗА ПОЛЯРНЫМ КРУГОМ",
+        "date": "13 - 23 ноября",
+        "more_date": 3,
+        "price": 320000,
+        "place_country": "Россия",
+        "place_city": "Мурманск",
+        "imageUrl": "https://urgi-stv.ru/wp-content/uploads/2/f/1/2f11e00862e627a9cb94626a3aa5105c.jpeg"
+    },{
+        "id": 6,
+        "name": "ГОРОД ЛЮБВИ",
+        "date": "1 - 10 мая",
+        "more_date": 12,
+        "price": 510000,
+        "place_country": "Франция",
+        "place_city": "Париж",
+        "imageUrl": "https://tourweek.ru/file/image?path=uploads/gallery_media/KzQTHbTBaiHnD8Jnw37IBt-iOxqEUInb.jpg&s=98cb22a74ae417de3a5d1078a8cdc32b"
+    },{
+        "id": 7,
+        "name": "АМЕРИКАНСКАЯ МЕЧТА",
+        "date": "1 - 10 мая",
+        "more_date": 3,
+        "price": 560000,
+        "place_country": "Египет",
+        "place_city": null,
+        "imageUrl": "https://grandgames.net/puzzle/f1200/nyu_jork_1.jpg"
+    },{
+        "id": 8,
+        "name": "БАКУ И ОКРЕСТНОСТИ",
+        "date": "5-7 мая",
+        "more_date": 23,
+        "price": 90000,
+        "place_country": "Азербайджан",
+        "place_city": "Баку",
+        "imageUrl": "https://img.magput.ru/pics/large/0ab92e2a-7f99-4181-a241-86466bf66568.jpg"
+    },{
+        "id": 9,
+        "name": "ЗОЛОТОЕ КОЛЬЦО АБХАЗИИ",
+        "date": "7 - 13 июля",
+        "more_date": 3,
+        "price": 121000,
+        "place_country": "Абхазия",
+        "place_city": null,
+        "imageUrl": "https://avatars.dzeninfra.ru/get-zen_doc/1658056/pub_5cb99b6d51095b00b39e4222_5cb9a8aaf0a2c100b22d19f2/scale_1200"
+    },{
+        "id": 10,
+        "name": "В ГЕРМАНИЮ НА ВЫХОДНЫЕ",
+        "date": "5 - 7 июня",
+        "more_date": 0,
+        "price": 220000,
+        "place_country": "Германия",
+        "place_city": null,
+        "imageUrl": "https://cdn2.tu-tu.ru/image/pagetree_node_data/1/bb1dcb9933b840889a1306a81f976b78/"
+    },{
+        "id": 11,
+        "name": "КАППАДОКИЯ И ДРУГАЯ ТУРЦИЯ",
+        "date": "12 - 21 мая",
+        "more_date": 3,
+        "price": 320000,
+        "place_country": "Турция",
+        "place_city": null,
+        "imageUrl": "https://7d9e88a8-f178-4098-bea5-48d960920605.selcdn.net/b2d16aa7-71c2-4b10-867f-927c6a33242a/"
+    }
+]
