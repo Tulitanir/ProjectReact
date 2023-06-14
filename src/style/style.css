@@ -1,465 +1,465 @@
 body {
-    margin: 0; padding: 0;
-    overflow-x: hidden;
-    --orange: #FF601B;
-    --lightorange: #FF8D1B;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  --orange: #ff601b;
+  --lightorange: #ff8d1b;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
 }
 
 header {
-    background-color: black;
+  background-color: black;
 }
 
 header nav a {
-    color: white;
+  color: white;
 }
 
 .title {
-    background-color: black;
+  background-color: black;
 }
 
 .text1 {
-    color: #FF601B;
+  color: #ff601b;
 }
 
 .text2 {
-    font-size: x-large;
-    color: white;
-    -webkit-text-stroke: 1px black;
+  font-size: x-large;
+  color: white;
+  -webkit-text-stroke: 1px black;
 }
 
 .title {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: space-between;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
 }
 
 .container {
-    width: max(400px, 80vw);
-    margin: 0 auto;
+  width: max(400px, 80vw);
+  margin: 0 auto;
 }
 
 a {
-    font-size: 1rem;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-    transition: 0.5s;
+  font-size: 1rem;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 a:hover {
-    color: black;
+  color: black;
 }
 
 nav {
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-    padding: 1rem 0;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  padding: 1rem 0;
 }
 
 header h1 {
-    font-family: 'Great Vibes', cursive;    
-    text-align: center;
-    /* margin-top: 3rem; */
+  font-family: "Great Vibes", cursive;
+  text-align: center;
+  /* margin-top: 3rem; */
 }
 
 header p {
-    text-align: center;
-    color: var(--lightorange);
-    font-size: 1.5rem;
+  text-align: center;
+  color: var(--lightorange);
+  font-size: 1.5rem;
 }
 
 header p span {
-    color: var(--orange);
+  color: var(--orange);
 }
 
 header nav {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    /* margin-top: 3rem; */
-    font-size: 1.3rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  /* margin-top: 3rem; */
+  font-size: 1.3rem;
 }
 
 header nav a {
-    margin-right: 3rem;
+  margin-right: 3rem;
 }
 
 header nav a.active {
-    color: var(--orange);
-    font-weight: 700;
+  color: var(--orange);
+  font-weight: 700;
 }
 header nav a:hover {
-    color: var(--orange);    
+  color: var(--orange);
 }
 
 main .filter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.filter .filters span, .filter .sort span {
-    padding: 0.8rem 2rem;
-    border: 3px solid var(--orange);
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: 0.5s;
+.filter .filters span,
+.filter .sort span {
+  padding: 0.8rem 2rem;
+  border: 3px solid var(--orange);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
-.filter .filters span:hover, .filter .sort span:hover, .filter .filters span.active {
-    background-color: var(--orange);
-    color: white;
+.filter .filters span:hover,
+.filter .sort span:hover,
+.filter .filters span.active {
+  background-color: var(--orange);
+  color: white;
 }
 .filter .filters span {
-    margin-right: 3rem;
+  margin-right: 3rem;
 }
 
 h2 {
-    margin-top: 5rem;
-    margin-bottom: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
 }
 
 .filter .sort {
-    position: relative;
+  position: relative;
 }
 
 .filter .sort span {
-    
-    position: relative;
-    z-index: 21;
+  position: relative;
+  z-index: 21;
 }
 
 .filter .select-sort {
-    border: 1px solid rgba(0, 0, 0, 0.562);
-    border-top: none;
-    border-radius: 0 0 2rem 2rem;
-    position: absolute;
-    left: 1%;
-    width: 99%;
-    padding: 2rem 0 1rem 0;
-    z-index: 20;
-    background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.562);
+  border-top: none;
+  border-radius: 0 0 2rem 2rem;
+  position: absolute;
+  left: 1%;
+  width: 99%;
+  padding: 2rem 0 1rem 0;
+  z-index: 20;
+  background-color: white;
 }
 
 .filter .select-sort div {
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: 0.5s;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 .filter .select-sort div:hover {
-    background-color: var(--orange);
+  background-color: var(--orange);
 }
 
 section.tours > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 section.tours article {
-    width: 320px;
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: 0.5s;
-    margin-bottom: 2rem;
+  width: 320px;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: 0.5s;
+  margin-bottom: 2rem;
 }
 section.tours article:hover .info {
-    background-color: #ff5f1b0c;
+  background-color: #ff5f1b0c;
 }
 section.tours article:hover {
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.233)
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.233);
 }
 
 section.tours article .photo {
-    background-size: cover;
-    background-position: center;
-    height: 200px;
-    border-radius: 2rem 2rem 0 0;
-    position: relative
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  border-radius: 2rem 2rem 0 0;
+  position: relative;
 }
 section.tours article .photo svg {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background-color: white;
-    color: var(--orange);
-    opacity: 0.4;
-    cursor: pointer;
-    transition: 0.5s;
-    padding: 0.5rem;
-    font-size: 1.2rem;
-    border-radius: 2rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: white;
+  color: var(--orange);
+  opacity: 0.4;
+  cursor: pointer;
+  transition: 0.5s;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 2rem;
 }
 section.tours article .photo svg.active {
-    opacity: 1;
+  opacity: 1;
 }
 section.tours article .photo svg:hover {
-    opacity: 1;
+  opacity: 1;
 }
 section.tours article .info {
-    border: 1px solid rgba(0, 0, 0, 0.562);
-    border-top: none;
-    border-radius: 0 0 2rem 2rem;
-    padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.562);
+  border-top: none;
+  border-radius: 0 0 2rem 2rem;
+  padding: 1rem;
 }
 section.tours article .info p {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 section.tours article .info span {
-    opacity: 0.7;
+  opacity: 0.7;
 }
-section.tours article .info h5, section.tours article .price {
-    color: var(--orange);
+section.tours article .info h5,
+section.tours article .price {
+  color: var(--orange);
 }
 section.tours article .price {
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom:  0rem !important;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0rem !important;
 }
 
 footer {
-    margin-top: 5rem;
-    background-color: black;
-    color: white;
-    padding: 4rem 0 ;
+  margin-top: 5rem;
+  background-color: black;
+  color: white;
+  padding: 4rem 0;
 }
 
 footer h1 {
-    font-family: 'Great Vibes', cursive;    
+  font-family: "Great Vibes", cursive;
 }
 
 footer a {
-    color: white;
-    text-transform: uppercase;
-    padding: 1rem 0;
+  color: white;
+  text-transform: uppercase;
+  padding: 1rem 0;
 }
 
 footer a:hover {
-    color: white;
+  color: white;
 }
 
 section.favorites .tour {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 section.favorites .tour .left {
-    display: flex;
-    width: 50%;
-    justify-content: flex-start;
+  display: flex;
+  width: 50%;
+  justify-content: flex-start;
 }
 
 section.favorites .tour img {
-    height: max(150px, 10vh);
+  height: max(150px, 10vh);
 }
 
 section.favorites .tour h5 {
-    transform: uppercase;
-    color: var(--orange);
+  transform: uppercase;
+  color: var(--orange);
 }
 
 section.favorites .tour .info {
-    margin-left: 2rem;
+  margin-left: 2rem;
 }
 
-section.favorites .tour .price, section.favorites .tour .people span,section.favorites .tour .sum {
-    color: var(--orange);
-    font-weight: 700;
-} 
+section.favorites .tour .price,
+section.favorites .tour .people span,
+section.favorites .tour .sum {
+  color: var(--orange);
+  font-weight: 700;
+}
 
 section.favorites .tour .sum {
-    font-size: 1.6rem;
-
+  font-size: 1.6rem;
 }
 
 section.favorites .math {
-    text-align: right;
+  text-align: right;
 }
 section.favorites .buttons {
-    text-align: right;
+  text-align: right;
 }
 section.favorites .buttons i {
-    font-size: 2rem;
-    opacity: 0.5;
-    transition: 0.5s;
-    cursor: pointer;
+  font-size: 2rem;
+  opacity: 0.5;
+  transition: 0.5s;
+  cursor: pointer;
 }
 section.favorites .buttons i:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 section.favorites .tour {
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.267);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.267);
 }
 
-
-
 section.favorites_empty {
-    padding: 5rem;
-    text-align: center;
+  padding: 5rem;
+  text-align: center;
 }
 
 .row {
-    display: flex;
+  display: flex;
 }
 
 .row .half {
-    width: 49%;
+  width: 49%;
 }
 
 footer .half.left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
 }
 
 footer nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
 }
 
 .home {
-    width: 80%;
-    margin: 0 auto;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .homeText {
-    font-size: xx-large;
+  font-size: xx-large;
 }
 
 .comment {
-    border: 2px solid var(--lightorange);
-    border-radius: 10px;
-    margin-bottom: 1%;
+  border: 2px solid var(--lightorange);
+  border-radius: 10px;
+  margin-bottom: 1%;
 }
 
 .news {
-    border: 2px solid var(--orange);
-    border-radius: 10px;
-    margin-bottom: 5%;
+  border: 2px solid var(--orange);
+  border-radius: 10px;
+  margin-bottom: 5%;
 }
 
 .newsTitle {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .newsTitle:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
-  
 .newsTime {
-font-size: 14px;
-color: #888;
-margin-bottom: 5px;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 5px;
 }
 
 .newsText {
-font-size: 16px;
-color: #555;
-line-height: 1.5;
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
 }
-  
-
 
 @media (max-width: 400px) {
-    body {
-        font-size: 12px;
-    }    
-    .container {
-        width: 100%;
-        padding: 10px;
-    }
+  body {
+    font-size: 12px;
+  }
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
 }
 
-
 @media (max-width: 800px) {
-    section.tours > div {
-        justify-content: center;
-    }
-    
-    main .filter .filters span {
-        margin-top: 0;
-        margin-right: 1rem;
-        padding: 0.3rem 1rem;
-    }
+  section.tours > div {
+    justify-content: center;
+  }
 
-    main .filter .sort span {
-        padding: 0.3rem 1rem;
-    } 
-    .filter .select-sort div {
-        padding: 0;
-    }
-    .row {
-        flex-wrap: wrap;
-    }
-    .row .half {
-        width: 100%;
-    }
+  main .filter .filters span {
+    margin-top: 0;
+    margin-right: 1rem;
+    padding: 0.3rem 1rem;
+  }
 
-    footer .half.left, footer nav {
-        align-items: center;
-    }
+  main .filter .sort span {
+    padding: 0.3rem 1rem;
+  }
+  .filter .select-sort div {
+    padding: 0;
+  }
+  .row {
+    flex-wrap: wrap;
+  }
+  .row .half {
+    width: 100%;
+  }
 
-    section.favorites .tour {
-        flex-wrap: wrap;
-        position: relative;
-    }
+  footer .half.left,
+  footer nav {
+    align-items: center;
+  }
 
-    section.favorites .tour .left {
-        width: 100%;
-    }
-    
-    
-    section.favorites .tour .math{
-        margin-top: 1rem;
-    }
-    section.favorites .tour .buttons i {
-        position: absolute; top: 1%; right: 1%;
-    }
+  section.favorites .tour {
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  section.favorites .tour .left {
+    width: 100%;
+  }
+
+  section.favorites .tour .math {
+    margin-top: 1rem;
+  }
+  section.favorites .tour .buttons i {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+  }
 }
 
 @media (max-width: 1100px) {
-    body {
-        font-size: 14px;
-    }    
-    
-    main .filter {
-        flex-wrap: wrap;
-    }
+  body {
+    font-size: 14px;
+  }
 
-    main .filter .filters {
-        width: 100%;
-        text-align: center;
-    }
+  main .filter {
+    flex-wrap: wrap;
+  }
 
-    main .filter .filters span {
-        margin-top: 0;
-        margin-right: 1rem;
-        padding: 0.3rem 1rem;
-    }
+  main .filter .filters {
+    width: 100%;
+    text-align: center;
+  }
 
-    main .filter .sort {
-        margin-top: 3rem;
-        width: 100%;
-    }
-    main .filter .sort span {
-        display: block;
-    }
+  main .filter .filters span {
+    margin-top: 0;
+    margin-right: 1rem;
+    padding: 0.3rem 1rem;
+  }
+
+  main .filter .sort {
+    margin-top: 3rem;
+    width: 100%;
+  }
+  main .filter .sort span {
+    display: block;
+  }
 }

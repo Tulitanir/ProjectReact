@@ -1,5 +1,6 @@
-function formatDateTime(dateTimeString) {
-    let date
+export default class Utils {
+  static formatDateTime(dateTimeString) {
+    let date;
     if (dateTimeString !== null && dateTimeString !== undefined) {
       let timeStamp = dateTimeString.replace(/ /g, "+");
       date = new Date(timeStamp);
@@ -7,16 +8,32 @@ function formatDateTime(dateTimeString) {
       date = new Date(dateTimeString);
     }
     const options = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-      hour12: false
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: false,
     };
-    
-    return date.toLocaleString('ru-RU', options);
-}
+    return date.toLocaleString("ru-RU", options);
+  }
 
-export default formatDateTime;
+  static async encodeFileToBase64(file) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    await new Promise((resolve, reject) => {
+      reader.onloadend = () => {
+        const base64String = reader.result.split(",")[1];
+        resolve(base64String);
+      };
+
+      reader.onerror = (error) => {
+        reject(error);
+      };
+    });
+
+    return reader.result.split(",")[1];
+  }
+}
