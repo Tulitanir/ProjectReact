@@ -83,77 +83,84 @@ function RegistrationPage() {
       localStorage.setItem("user", JSON.stringify(data.member));
       localStorage.setItem("accessToken", data.accessToken);
       localStorage.setItem("refreshToken", data.refreshToken);
+      localStorage.setItem("expiresIn", data.expiresIn);
       handleRedirect();
     }
   };
 
   return (
-    <div>
-      <h1>Регистрация</h1>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <label>
-          Имя:
-          <input
-            type="text"
-            value={name}
-            onChange={handleNameChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Фамилия:
-          <input
-            type="text"
-            value={surname}
-            onChange={handleSurameChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Номер телефона:
-          <input
-            type="tel"
-            value={phone}
-            onChange={handlePhoneChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input
-            type="email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Пароль:
-          <input
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Картинка профиля:
-          <input type="file" accept="image/*" onChange={handleImageChange} />
-        </label>
-        <br />
-        <button type="submit">Зарегистрироваться</button>
-        <button type="reset" onClick={resetForm}>
-          Очистить форму
-        </button>
-      </form>
-      <Link to="/loginPage">
-        <p>Уже зарегистрированы?</p>
-      </Link>
+    <div className="login-page">
+      <div className="login-container">
+        <h1>Регистрация</h1>
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
+          <label>
+            Имя:
+            <input
+              type="text"
+              value={name}
+              onChange={handleNameChange}
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Фамилия:
+            <input
+              type="text"
+              value={surname}
+              onChange={handleSurameChange}
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Номер телефона:
+            <input
+              type="tel"
+              value={phone}
+              onChange={handlePhoneChange}
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Email:
+            <input
+              type="email"
+              value={email}
+              onChange={handleEmailChange}
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Пароль:
+            <input
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Картинка профиля:
+            <input type="file" accept="image/*" onChange={handleImageChange} />
+          </label>
+          <br />
+          <button className="login-button" type="submit">
+            Зарегистрироваться
+          </button>
+          <br />
+          <br />
+          <button className="login-button" type="reset" onClick={resetForm}>
+            Очистить форму
+          </button>
+        </form>
+        <Link to="/loginPage">
+          <p>Уже зарегистрированы?</p>
+        </Link>
+      </div>
     </div>
   );
 }

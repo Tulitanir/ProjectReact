@@ -36,4 +36,13 @@ export default class Utils {
 
     return reader.result.split(",")[1];
   }
+
+  // static async getUserById(id) {
+  //   let request = {
+  //     uri: "",
+  //     options: {
+
+  //     }
+  //   }
+  // }
 }

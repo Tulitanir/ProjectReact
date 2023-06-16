@@ -1,12 +1,21 @@
 import { useState, useEffect } from "react";
 import Authentication from "../utils/Auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useHistory } from "react-router-dom";
+import "../style/loginPage.css";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+
+    if (user) {
+      navigate("/profileInfo", { state: { user: user } });
+    }
+  }, []);
 
   const handleRedirect = (member) => {
     navigate("/profileInfo", { state: { user: JSON.stringify(member) } });
@@ -33,13 +42,14 @@ function LoginPage() {
       localStorage.setItem("user", JSON.stringify(res.member));
       localStorage.setItem("accessToken", res.accessToken);
       localStorage.setItem("refreshToken", res.refreshToken);
+      localStorage.setItem("expiresIn", res.expiresIn);
       handleRedirect(res.member);
     }
   };
 
   return (
     <div className="login-page">
-      <div>
+      <div className="login-container">
         <h1>Вход</h1>
         <form onSubmit={handleSubmit}>
           <label>
@@ -62,12 +72,14 @@ function LoginPage() {
             />
           </label>
           <br />
-          <button type="submit">Войти</button>
+          <button className="login-button" type="submit">
+            Войти
+          </button>
         </form>
+        <Link to="/registrationPage">
+          <p>Ещё не зарегистрированы?</p>
+        </Link>
       </div>
-      <Link to="/registrationPage">
-        <p>Ещё не зарегистрированы?</p>
-      </Link>
     </div>
   );
 }

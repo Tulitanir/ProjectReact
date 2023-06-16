@@ -7,10 +7,9 @@ function Header() {
           <h1 className="text1">Open Fitness</h1>
           <NavLink to="/">ГЛАВНАЯ</NavLink>
           <NavLink to="/news">НОВОСТИ</NavLink>
-          <a href="">РАСПИСАНИЕ ГРУППОВЫХ ЗАНЯТИЙ</a>
+          <NavLink to="/trainings">РАСПИСАНИЕ ГРУППОВЫХ ЗАНЯТИЙ</NavLink>
           <a href="">КОМАНДА</a>
-          <a href="">АБОНЕМЕНТЫ</a>
-          <a href="">КОНТАКТЫ</a>
+          <NavLink to="/programs">ПРОГРАММЫ ТРЕНИРОВОК</NavLink>
           <NavLink to="/loginPage">ВОЙТИ</NavLink>
         </div>
       </nav>

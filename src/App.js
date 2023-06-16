@@ -12,6 +12,9 @@ import NewsInfo from "./pages/NewsInfo";
 import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import ProfileInfo from "./pages/ProfileInfo";
+import ProgramPage from "./pages/ProgramPage";
+import Page from "./pages/Page";
+import TrainingPage from "./pages/TrainingPage";
 function App() {
   return (
     <>
@@ -23,6 +26,8 @@ function App() {
         <Route path="/loginPage" element={<LoginPage />} />
         <Route path="/registrationPage" element={<RegistrationPage />} />
         <Route path="/profileInfo" element={<ProfileInfo />} />
+        <Route path="/programs" element={<ProgramPage />} />
+        <Route path="/trainings" element={<TrainingPage />} />
         <Route path="" element={<h1>Страница не найдена</h1>} />
       </Routes>
       {/* <Footer /> */}

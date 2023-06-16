@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 export default class Authentication {
   static async loginRequest(data) {
     try {
@@ -40,5 +42,64 @@ export default class Authentication {
       const errorMessage = `Ошибка: ${error.message}`;
       alert(errorMessage);
     }
+  }
+
+  static async fetchWithAuth(url, options) {
+    let tokenData = localStorage.getItem("refreshToken");
+    if (!tokenData) {
+      return;
+    }
+
+    if (!options.headers) {
+      options.headers = {};
+    }
+
+    const isTokenValid =
+      Date.now() - parseInt(localStorage.getItem("expiresIn")) <= 0;
+    if (!isTokenValid) {
+      const response = await getNewAccessToken(tokenData);
+      if (!response) {
+        return;
+      }
+
+      localStorage.setItem("user", JSON.stringify(response.member));
+      localStorage.setItem("accessToken", response.accessToken);
+      localStorage.setItem("refreshToken", response.refreshToken);
+      localStorage.setItem("expiresIn", response.expiresIn);
+      options.headers.Authentication = `Bearer ${response.accessToken}`;
+    } else {
+      options.headers.Authentication = `Bearer ${localStorage.getItem(
+        "accessToken"
+      )}`;
+    }
+    return { url, options };
+  }
+}
+
+async function getNewAccessToken(refreshToken) {
+  try {
+    const body = {
+      refreshToken: refreshToken,
+    };
+    const response = await fetch(
+      "http://localhost:8080/api/auth/refreshToken",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      }
+    );
+
+    if (response.status == 401) {
+      const errorMessage = await response.text();
+      throw new Error(errorMessage);
+    }
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    return;
   }
 }

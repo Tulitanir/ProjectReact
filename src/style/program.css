@@ -1,0 +1,35 @@
+.program {
+  /* display: inline-block; */
+  margin: 0.5rem;
+  text-align: center;
+  background-color: black;
+  padding: 1rem;
+  border-radius: 4px;
+  width: 25%;
+}
+
+.program-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #ff8d1b;
+}
+
+.program-description {
+  font-size: 1rem;
+  color: #888888;
+}
+
+.program-page {
+  padding: 2rem;
+}
+
+.program-page-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.program-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
