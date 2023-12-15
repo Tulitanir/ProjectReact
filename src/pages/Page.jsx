@@ -4,23 +4,27 @@ import Authentication from "../utils/Auth";
 const Page = () => {
   const [option1, setOption1] = useState([]);
   const [option2, setOption2] = useState([]);
-  const [selectedValue1, setSelectedValue1] = useState([]);
-  const [selectedValue2, setSelectedValue2] = useState([]);
-  const [date, setDate] = useState(null);
-  const [time1, setTime1] = useState(null);
-  const [time2, setTime2] = useState(null);
+  const [selectedValue1, setSelectedValue1] = useState("");
+  const [selectedValue2, setSelectedValue2] = useState("");
+  const [date, setDate] = useState("");
+  const [time1, setTime1] = useState("");
+  const [time2, setTime2] = useState("");
   const [capacity, setcapacity] = useState(0);
 
-  useEffect(() => {
-    fetch("http://localhost:8080/api/program/getAll")
+  const getPrograms = () => {
+    fetch("http://backend:8080/api/program/getAll")
       .then((response) => response.json())
       .then((data) => setOption1(data))
       .catch((error) => console.error(error));
+  };
+
+  useEffect(() => {
+    getPrograms();
 
     let trainersRequest;
     let response;
     Authentication.fetchWithAuth(
-      "http://localhost:8080/api/member/find?role=trainer",
+      "http://backend:8080/api/member/find?role=trainer",
       {
         method: "GET",
       }
@@ -31,7 +35,6 @@ const Page = () => {
         .then((data) => setOption2(data))
         .catch((error) => console.error(error));
     }, []);
-    console.log(option1, option2);
   }, []);
 
   const handleOption1Change = (event) => {
@@ -71,7 +74,7 @@ const Page = () => {
     };
 
     const request = await Authentication.fetchWithAuth(
-      `http://localhost:8080/api/program/addTraining`,
+      `http://backend:8080/api/program/addTraining`,
       {
         method: "POST",
         headers: {
@@ -83,7 +86,7 @@ const Page = () => {
 
     try {
       const response = await fetch(request.url, request.options);
-      if (response.status == 400) {
+      if (response.status === 400) {
         let text = await response.text();
         throw new Error(text);
       } else {
@@ -108,6 +111,7 @@ const Page = () => {
             id="option1"
             value={selectedValue1}
             onChange={handleOption1Change}
+            required
           >
             <option value="">-- Выберите --</option>
             {option1.map((option) => (
@@ -124,6 +128,7 @@ const Page = () => {
             id="option2"
             value={selectedValue2}
             onChange={handleOption2Change}
+            required
           >
             <option value="">-- Выберите --</option>
             {option2.map((option) => (
@@ -141,6 +146,7 @@ const Page = () => {
             id="date"
             value={date}
             onChange={handleDateChange}
+            required
           />
         </div>
         <br />
@@ -151,6 +157,7 @@ const Page = () => {
             id="time1"
             value={time1}
             onChange={handleTime1Change}
+            required
           />
         </div>
         <br />
@@ -160,6 +167,7 @@ const Page = () => {
             type="time"
             id="time2"
             value={time2}
+            required
             onChange={handleTime2Change}
           />
         </div>
@@ -175,6 +183,7 @@ const Page = () => {
             id="capacity"
             value={capacity}
             onChange={handlecapacityChange}
+            required
           />
         </div>
         <br />

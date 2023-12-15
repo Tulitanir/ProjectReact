@@ -4,8 +4,8 @@ import "../style/comment.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import Auth from "../utils/Auth";
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Authentication from "../utils/Auth";
 
 const Comment = ({
   id,
@@ -41,8 +41,8 @@ const Comment = ({
   };
 
   const handleDeleteClick = async () => {
-    const request = await Auth.fetchWithAuth(
-      `http://localhost:8080/api/news/deleteComment?id=${id}`,
+    const request = await Authentication.fetchWithAuth(
+      `http://backend:8080/api/news/deleteComment?id=${id}`,
       {
         method: "DELETE",
       }
@@ -51,7 +51,11 @@ const Comment = ({
       localStorage.clear();
       navigate("/loginPage");
     }
-    const res = await fetch(request.url, request.options);
+    try {
+      await fetch(request.url, request.options);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleSaveClick = async () => {
@@ -59,8 +63,8 @@ const Comment = ({
       id: id,
       text: text2,
     };
-    const request = await Auth.fetchWithAuth(
-      `http://localhost:8080/api/news/updateComment`,
+    const request = await Authentication.fetchWithAuth(
+      `http://backend:8080/api/news/updateComment`,
       {
         method: "PUT",
         headers: {
@@ -73,33 +77,34 @@ const Comment = ({
       localStorage.clear();
       navigate("/loginPage");
     }
-    const res = await fetch(request.url, request.options);
+    await fetch(request.url, request.options);
     setIsEditing(false);
   };
 
-  let componentToRender;
+  let componentToRender = <></>;
 
-  if (!memberId || !userId) return;
-  if (userRoles.find((item) => item.name === "admin")) {
-    componentToRender = (
-      <>
-        <button onClick={handleDeleteClick} className="comment-delete-button">
-          <FontAwesomeIcon icon={faTrash} />
-        </button>
-      </>
-    );
-  }
-  if (userId == memberId) {
-    componentToRender = (
-      <>
-        <button onClick={handleEditClick} className="comment-edit-button">
-          <FontAwesomeIcon icon={faPencilAlt} />
-        </button>
-        <button onClick={handleDeleteClick} className="comment-delete-button">
-          <FontAwesomeIcon icon={faTrash} />
-        </button>
-      </>
-    );
+  if (memberId && userId) {
+    if (userRoles.find((item) => item.name === "admin")) {
+      componentToRender = (
+        <>
+          <button onClick={handleDeleteClick} className="comment-delete-button">
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
+        </>
+      );
+    }
+    if (userId === memberId) {
+      componentToRender = (
+        <>
+          <button onClick={handleEditClick} className="comment-edit-button">
+            <FontAwesomeIcon icon={faPencilAlt} />
+          </button>
+          <button onClick={handleDeleteClick} className="comment-delete-button">
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
+        </>
+      );
+    }
   }
 
   return (

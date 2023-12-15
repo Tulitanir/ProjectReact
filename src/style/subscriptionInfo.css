@@ -1,0 +1,28 @@
+.subscription-info {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.subscription-info__title {
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-left: 350px;
+}
+
+.subscription-info__text {
+  margin-bottom: 3px;
+}
+
+.subscription-info__button {
+  padding: 5px 10px;
+  margin-left: 680px;
+  background-color: #ff8d1b;
+  color: #fff;
+  border: none;
+}
+
+.subscription-info__button:hover {
+  background-color: #ff601b;
+  cursor: pointer;
+}

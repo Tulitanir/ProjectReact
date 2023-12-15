@@ -1,9 +1,7 @@
-import { useNavigate } from "react-router-dom";
-
 export default class Authentication {
   static async loginRequest(data) {
     try {
-      const response = await fetch("http://localhost:8080/api/auth/login", {
+      const response = await fetch("http://backend:8080/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,7 +24,7 @@ export default class Authentication {
 
   static async registrationRequest(data) {
     try {
-      const response = await fetch("http://localhost:8080/api/auth/register", {
+      const response = await fetch("http://backend:8080/api/auth/register", {
         method: "POST",
         body: data,
       });
@@ -44,7 +42,7 @@ export default class Authentication {
     }
   }
 
-  static async fetchWithAuth(url, options) {
+  static async fetchWithAuth(url, options, force) {
     let tokenData = localStorage.getItem("refreshToken");
     if (!tokenData) {
       return;
@@ -56,17 +54,21 @@ export default class Authentication {
 
     const isTokenValid =
       Date.now() - parseInt(localStorage.getItem("expiresIn")) <= 0;
-    if (!isTokenValid) {
-      const response = await getNewAccessToken(tokenData);
-      if (!response) {
-        return;
-      }
+    if (!isTokenValid || force) {
+      try {
+        const response = await getNewAccessToken(tokenData);
+        if (!response.status === 200) {
+          throw new Error(response.text());
+        }
 
-      localStorage.setItem("user", JSON.stringify(response.member));
-      localStorage.setItem("accessToken", response.accessToken);
-      localStorage.setItem("refreshToken", response.refreshToken);
-      localStorage.setItem("expiresIn", response.expiresIn);
-      options.headers.Authentication = `Bearer ${response.accessToken}`;
+        localStorage.setItem("user", JSON.stringify(response.member));
+        localStorage.setItem("accessToken", response.accessToken);
+        localStorage.setItem("refreshToken", response.refreshToken);
+        localStorage.setItem("expiresIn", response.expiresIn);
+        options.headers.Authentication = `Bearer ${response.accessToken}`;
+      } catch (error) {
+        alert(error);
+      }
     } else {
       options.headers.Authentication = `Bearer ${localStorage.getItem(
         "accessToken"
@@ -81,18 +83,15 @@ async function getNewAccessToken(refreshToken) {
     const body = {
       refreshToken: refreshToken,
     };
-    const response = await fetch(
-      "http://localhost:8080/api/auth/refreshToken",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      }
-    );
+    const response = await fetch("http://backend:8080/api/auth/refreshToken", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
 
-    if (response.status == 401) {
+    if (response.status === 401) {
       const errorMessage = await response.text();
       throw new Error(errorMessage);
     }
@@ -100,6 +99,6 @@ async function getNewAccessToken(refreshToken) {
     const result = await response.json();
     return result;
   } catch (error) {
-    return;
+    console.error(error);
   }
 }

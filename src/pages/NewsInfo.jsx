@@ -2,7 +2,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import News from "../components/News";
 import { useState, useEffect } from "react";
 import Comment from "../components/Comment";
-import Auth from "../utils/Auth";
+
+import Authentication from "../utils/Auth";
 
 function NewsInfo() {
   const location = useLocation();
@@ -15,6 +16,19 @@ function NewsInfo() {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const navigate = useNavigate();
+
+  const getComments = () => {
+    fetch(`http://backend:8080/api/news/getComments?id=${id}`)
+      .then((response) => response.json())
+      .then((res) => {
+        setComments(res);
+      })
+      .catch((error) => console.error(error));
+  };
+
+  useEffect(() => {
+    getComments();
+  }, []);
 
   const handleCommentChange = (event) => {
     setNewComment(event.target.value);
@@ -33,7 +47,7 @@ function NewsInfo() {
     setNewComment("");
 
     let request = {
-      url: "http://localhost:8080/api/news/addComment",
+      url: "http://backend:8080/api/news/addComment",
       options: {
         method: "POST",
         headers: {
@@ -47,7 +61,10 @@ function NewsInfo() {
       },
     };
 
-    const res = await Auth.fetchWithAuth(request.url, request.options);
+    const res = await Authentication.fetchWithAuth(
+      request.url,
+      request.options
+    );
     console.log(res);
     request.url = res.url;
     request.options = res.options;
@@ -65,13 +82,9 @@ function NewsInfo() {
       .catch((error) => {
         alert("Ошибка при отправке комментария:", error);
       });
-  };
 
-  useEffect(() => {
-    fetch(`http://localhost:8080/api/news/getComments?id=${id}`)
-      .then((response) => response.json())
-      .then((res) => setComments(res));
-  }, []);
+    getComments();
+  };
 
   return (
     <div className="container">

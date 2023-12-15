@@ -37,12 +37,23 @@ export default class Utils {
     return reader.result.split(",")[1];
   }
 
-  // static async getUserById(id) {
-  //   let request = {
-  //     uri: "",
-  //     options: {
+  static validateCreditCard(cardNumber, expirationDate, cardholderName, cvc) {
+    if (!/^\d{16}$/.test(cardNumber)) {
+      return false;
+    }
 
-  //     }
-  //   }
-  // }
+    if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expirationDate)) {
+      return false;
+    }
+
+    if (!/^[a-zA-Z]+\s[a-zA-Z]+$/.test(cardholderName)) {
+      return false;
+    }
+
+    if (!/^\d{3}$/.test(cvc)) {
+      return false;
+    }
+
+    return true;
+  }
 }

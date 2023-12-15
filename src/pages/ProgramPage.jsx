@@ -22,7 +22,7 @@ const ProgramPage = () => {
   }, []);
 
   const fetchData = () => {
-    fetch("http://localhost:8080/api/program/getAll")
+    fetch("http://backend:8080/api/program/getAll")
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));
@@ -37,7 +37,7 @@ const ProgramPage = () => {
     };
 
     const request = await Authentication.fetchWithAuth(
-      "http://localhost:8080/api/program/addProgram",
+      "http://backend:8080/api/program/addProgram",
       {
         method: "POST",
         headers: {

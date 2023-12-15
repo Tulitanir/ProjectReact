@@ -13,7 +13,7 @@ const TrainingPage = () => {
   const fetchTrainings = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/program/getTrainings"
+        "http://backend:8080/api/program/getTrainings"
       );
       setTrainings(response.data);
     } catch (error) {
@@ -42,9 +42,11 @@ const TrainingPage = () => {
           surname={training.surname}
           title={training.title}
           capacity={training.capacity}
+          memberCount={training.memberCount}
           date={training.date}
           beginning={training.beg}
           end={training.ending}
+          getTrainings={fetchTrainings}
         />
       ))}
     </div>

@@ -8,8 +8,9 @@ function Header() {
           <NavLink to="/">ГЛАВНАЯ</NavLink>
           <NavLink to="/news">НОВОСТИ</NavLink>
           <NavLink to="/trainings">РАСПИСАНИЕ ГРУППОВЫХ ЗАНЯТИЙ</NavLink>
-          <a href="">КОМАНДА</a>
+          {/* <a href="">КОМАНДА</a> */}
           <NavLink to="/programs">ПРОГРАММЫ ТРЕНИРОВОК</NavLink>
+          <NavLink to="/subscriptions">АБОНЕМЕНТЫ</NavLink>
           <NavLink to="/loginPage">ВОЙТИ</NavLink>
         </div>
       </nav>

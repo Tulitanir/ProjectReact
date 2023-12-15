@@ -13,8 +13,9 @@ import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import ProfileInfo from "./pages/ProfileInfo";
 import ProgramPage from "./pages/ProgramPage";
-import Page from "./pages/Page";
 import TrainingPage from "./pages/TrainingPage";
+import SubscriptionList from "./pages/SubscriptionsList";
+import PaymentPage from "./pages/PaymentPage";
 function App() {
   return (
     <>
@@ -28,6 +29,8 @@ function App() {
         <Route path="/profileInfo" element={<ProfileInfo />} />
         <Route path="/programs" element={<ProgramPage />} />
         <Route path="/trainings" element={<TrainingPage />} />
+        <Route path="/subscriptions" element={<SubscriptionList />} />
+        <Route path="/payment" element={<PaymentPage />} />
         <Route path="" element={<h1>Страница не найдена</h1>} />
       </Routes>
       {/* <Footer /> */}
