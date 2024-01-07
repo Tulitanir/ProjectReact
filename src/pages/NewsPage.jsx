@@ -3,7 +3,6 @@ import News from "../components/News";
 import { useState, useEffect } from "react";
 import Authentication from "../utils/Auth";
 function NewsPage() {
-  alert(process.env.REACT_APP_API_URL);
   const [newslist, setNews] = useState([]);
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
