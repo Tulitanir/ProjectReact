@@ -28,7 +28,7 @@ function News({ id, title, date, text, changed }) {
 
   const handleDeleteClick = async () => {
     const request = await Authentication.fetchWithAuth(
-      `http://backend:8080/api/news/deleteNews?id=${id}`,
+      `${process.env.REACT_APP_API_URL}/api/news/deleteNews?id=${id}`,
       {
         method: "DELETE",
       }
@@ -55,7 +55,7 @@ function News({ id, title, date, text, changed }) {
       text: text2,
     };
     const request = await Authentication.fetchWithAuth(
-      `http://backend:8080/api/news/updateNews`,
+      `${process.env.REACT_APP_API_URL}/api/news/updateNews`,
       {
         method: "PUT",
         headers: {

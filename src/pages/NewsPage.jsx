@@ -3,6 +3,7 @@ import News from "../components/News";
 import { useState, useEffect } from "react";
 import Authentication from "../utils/Auth";
 function NewsPage() {
+  alert(process.env.REACT_APP_API_URL);
   const [newslist, setNews] = useState([]);
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
@@ -34,7 +35,7 @@ function NewsPage() {
     setTitle("");
 
     let request = {
-      url: "http://backend:8080/api/news/addNews",
+      url: `${process.env.REACT_APP_API_URL}/api/news/addNews`,
       options: {
         method: "POST",
         headers: {
@@ -73,7 +74,7 @@ function NewsPage() {
   };
 
   const getNews = () => {
-    fetch("http://backend:8080/api/news/getAll")
+    fetch(`${process.env.REACT_APP_API_URL}/api/news/getAll`)
       .then((response) => response.json())
       .then((res) => {
         setNews(res);

@@ -8,7 +8,7 @@ function ImageComponent({ id }) {
 
   async function loadImage() {
     try {
-      const response = await fetch(`http://backend:8080/api/image?id=${id}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/image?id=${id}`);
       const arrayBuffer = await response.arrayBuffer();
 
       const byteArray = new Uint8Array(arrayBuffer);

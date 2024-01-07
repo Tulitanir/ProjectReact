@@ -12,7 +12,7 @@ const Page = () => {
   const [capacity, setcapacity] = useState(0);
 
   const getPrograms = () => {
-    fetch("http://backend:8080/api/program/getAll")
+    fetch(`${process.env.REACT_APP_API_URL}/api/program/getAll`)
       .then((response) => response.json())
       .then((data) => setOption1(data))
       .catch((error) => console.error(error));
@@ -24,7 +24,7 @@ const Page = () => {
     let trainersRequest;
     let response;
     Authentication.fetchWithAuth(
-      "http://backend:8080/api/member/find?role=trainer",
+      `${process.env.REACT_APP_API_URL}/api/member/find?role=trainer`,
       {
         method: "GET",
       }
@@ -74,7 +74,7 @@ const Page = () => {
     };
 
     const request = await Authentication.fetchWithAuth(
-      `http://backend:8080/api/program/addTraining`,
+      `${process.env.REACT_APP_API_URL}/api/program/addTraining`,
       {
         method: "POST",
         headers: {

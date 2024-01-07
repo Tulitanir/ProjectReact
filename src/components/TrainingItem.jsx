@@ -40,7 +40,7 @@ const TrainingItem = ({
     };
 
     const request = await Authentication.fetchWithAuth(
-      `http://backend:8080/api/program/signUp`,
+      `${process.env.REACT_APP_API_URL}/api/program/signUp`,
       {
         method: "POST",
         headers: {

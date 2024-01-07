@@ -1,7 +1,7 @@
 export default class Authentication {
   static async loginRequest(data) {
     try {
-      const response = await fetch("http://backend:8080/api/auth/login", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export default class Authentication {
 
   static async registrationRequest(data) {
     try {
-      const response = await fetch("http://backend:8080/api/auth/register", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/register`, {
         method: "POST",
         body: data,
       });
@@ -83,7 +83,7 @@ async function getNewAccessToken(refreshToken) {
     const body = {
       refreshToken: refreshToken,
     };
-    const response = await fetch("http://backend:8080/api/auth/refreshToken", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/refreshToken`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

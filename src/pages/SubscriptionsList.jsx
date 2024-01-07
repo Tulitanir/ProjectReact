@@ -4,7 +4,7 @@ import SubscriptionInfo from "../components/SubscriptionInfo";
 const SubscriptionList = () => {
   const [subscriptions, setSubscriptions] = useState([]);
   useEffect(() => {
-    fetch("http://backend:8080/api/subscription/getAll")
+    fetch(`${process.env.REACT_APP_API_URL}/api/subscription/getAll`)
       .then((response) => response.json())
       .then((res) => {
         setSubscriptions(res);

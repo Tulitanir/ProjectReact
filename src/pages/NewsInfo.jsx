@@ -18,7 +18,7 @@ function NewsInfo() {
   const navigate = useNavigate();
 
   const getComments = () => {
-    fetch(`http://backend:8080/api/news/getComments?id=${id}`)
+    fetch(`${process.env.REACT_APP_API_URL}/api/news/getComments?id=${id}`)
       .then((response) => response.json())
       .then((res) => {
         setComments(res);
@@ -47,7 +47,7 @@ function NewsInfo() {
     setNewComment("");
 
     let request = {
-      url: "http://backend:8080/api/news/addComment",
+      url: `${process.env.REACT_APP_API_URL}/api/news/addComment`,
       options: {
         method: "POST",
         headers: {

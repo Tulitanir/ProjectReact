@@ -42,7 +42,7 @@ const Comment = ({
 
   const handleDeleteClick = async () => {
     const request = await Authentication.fetchWithAuth(
-      `http://backend:8080/api/news/deleteComment?id=${id}`,
+      `${process.env.REACT_APP_API_URL}/api/news/deleteComment?id=${id}`,
       {
         method: "DELETE",
       }
@@ -64,7 +64,7 @@ const Comment = ({
       text: text2,
     };
     const request = await Authentication.fetchWithAuth(
-      `http://backend:8080/api/news/updateComment`,
+      `${process.env.REACT_APP_API_URL}/api/news/updateComment`,
       {
         method: "PUT",
         headers: {

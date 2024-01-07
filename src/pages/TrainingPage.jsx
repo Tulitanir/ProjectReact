@@ -13,7 +13,7 @@ const TrainingPage = () => {
   const fetchTrainings = async () => {
     try {
       const response = await axios.get(
-        "http://backend:8080/api/program/getTrainings"
+        `${process.env.REACT_APP_API_URL}/api/program/getTrainings`
       );
       setTrainings(response.data);
     } catch (error) {

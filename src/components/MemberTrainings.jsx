@@ -4,7 +4,7 @@ import Training from "./Training";
 function MemberTraining({ id }) {
   const [trainings, setTrainings] = useState([]);
   useEffect(() => {
-    fetch(`http://backend:8080/api/program/getTrainingsByMemberId?id=${id}`)
+    fetch(`${process.env.REACT_APP_API_URL}/api/program/getTrainingsByMemberId?id=${id}`)
       .then((response) => response.json())
       .then((res) => {
         setTrainings(res);

@@ -43,7 +43,7 @@ const PaymentPage = () => {
     };
 
     const request = await Authentication.fetchWithAuth(
-      `http://backend:8080/api/subscription/buySubscription`,
+      `${process.env.REACT_APP_API_URL}/api/subscription/buySubscription`,
       {
         method: "POST",
         headers: {
